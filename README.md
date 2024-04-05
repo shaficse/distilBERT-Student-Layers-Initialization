@@ -114,7 +114,7 @@ By addressing these limitations and incorporating proposed improvements, the stu
 A Flask application serves as the interface for model interaction. 
 - Users can input **Text** for classification. 
 
-The application routes include a home page for input submission and a generate endpoint that returns the generated text.
+The application routes include a home page for input submission and a generate endpoint that returns class of that text.
 
 
 ### Running the Application

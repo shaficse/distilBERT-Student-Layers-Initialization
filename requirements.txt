@@ -1,0 +1,10 @@
+torch==2.1.0
+torchaudio==2.1.0
+torchvision==0.16.0
+transformers==4.21.1 
+datasets==2.4.0 
+evaluate==0.1.2 
+flask==2.1.2  
+matplotlib==3.5.1  
+numpy==1.26.2  
+requests==2.31.0 

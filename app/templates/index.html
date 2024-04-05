@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Inference</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; }
+        .container { max-width: 600px; }
+        .prediction { background-color: #f8f9fa; border-left: 5px solid #5cb85c; margin-bottom: 10px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4">Enter Text for Classification</h2>
+        <form method="post" class="mb-3 needs-validation" novalidate>
+            <div class="form-group">
+                <textarea name="input_text" class="form-control" rows="4" required>{{ input_text }}</textarea>
+                <div class="invalid-feedback">
+                    Please provide some input text.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        {% if predictions %}
+            <h3>Predictions:</h3>
+            <div>
+                <p class="mb-1">Input Text:</p>
+                <div class="prediction">{{ input_text }}</div>
+                {% for strategy, label in predictions.items() %}
+                    <p class="mb-1"><strong>{{ strategy }}:</strong></p>
+                    <div class="prediction">{{ label }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>

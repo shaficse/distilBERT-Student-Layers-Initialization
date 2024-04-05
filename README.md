@@ -112,7 +112,7 @@ By addressing these limitations and incorporating proposed improvements, the stu
 ## Web Application Deployment
 
 A Flask application serves as the interface for model interaction. 
-- Users can input **Query** and **Context(optional)** and adjust parameters like **temperature** and **max length** to influence the text generation. 
+- Users can input **Text** for classification. 
 
 The application routes include a home page for input submission and a generate endpoint that returns the generated text.
 
